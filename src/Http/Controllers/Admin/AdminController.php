@@ -44,7 +44,12 @@ class AdminController extends Controller
      */
     public function store(AdminRequest $request)
     {
-        $this->user->create($request->all());
+        $user = $this->user->create($request->all());
+        if ($request->password != "") {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
         return redirect()->route('admin.users.index');
     }
 
@@ -79,7 +84,12 @@ class AdminController extends Controller
      */
     public function update(AdminRequest $request, Admin $user)
     {
-        $user->update($request->all());
+        $user->update($request->only('name', 'email'));
+        if ($request->password != "") {
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
+
         return redirect()->route('admin.users.index');
     }
 
