@@ -37,6 +37,8 @@ class MarrsAdminServiceProvider extends ServiceProvider
 
         $this->mergeAuthFileFrom(__DIR__ . '/config/auth.php', 'auth');
 
+
+
         $this->loadCommands();
     }
 

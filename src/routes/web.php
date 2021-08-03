@@ -10,7 +10,7 @@ Route::group(
         Route::post('login', 'Marrs\MarrsAdmin\Http\Controllers\Auth\AdminAuthController@login')->name('admin.login');
 
         Route::group(['middleware' => 'admin'], function () {
-            Route::get('dashboard', 'Marrs\MarrsAdmin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard');
+            Route::get('/', 'Marrs\MarrsAdmin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard');
             Route::get('logout',  'Marrs\MarrsAdmin\Http\Controllers\Auth\AdminAuthController@logout')->name('admin.logout');
             Route::resources([
                 'users' => 'Marrs\MarrsAdmin\Http\Controllers\Admin\AdminController',
