@@ -3,6 +3,7 @@
 namespace Marrs\MarrsAdmin;
 
 use Illuminate\Support\ServiceProvider;
+use Marrs\MarrsAdmin\Console\Commands\Install;
 use Marrs\MarrsAdmin\Http\Middleware\AdminAuth;
 use Marrs\MarrsAdmin\Views\Components\Menu;
 
@@ -35,6 +36,8 @@ class MarrsAdminServiceProvider extends ServiceProvider
         ], 'marrs-admin-assets');
 
         $this->mergeAuthFileFrom(__DIR__ . '/config/auth.php', 'auth');
+
+        $this->loadCommands();
     }
 
     public function register()
@@ -65,5 +68,12 @@ class MarrsAdminServiceProvider extends ServiceProvider
     protected function loadMiddleware()
     {
         app('router')->aliasMiddleware('admin', AdminAuth::class);
+    }
+
+    protected function loadCommands()
+    {
+        $this->commands([
+            Install::class,
+        ]);
     }
 }
