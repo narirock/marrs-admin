@@ -1,0 +1,19 @@
+{
+    "name": "narirock/marrs-admin",
+    "description": "Pacote para inclusão das funções de admin",
+    "authors": [
+        {
+            "name": "narirock",
+            "email": "nari9rock@hotmail.com"
+        }
+    ],
+    "require": {
+        "laravelcollective/html": "^6.2",
+        "nesbot/carbon": "^2.50"
+    },
+    "autoload": {
+        "psr-4": {
+            "Marrs\\MarrsAdmin\\": "src/"
+        }
+    }
+}
