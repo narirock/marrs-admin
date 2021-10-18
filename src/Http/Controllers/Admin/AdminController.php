@@ -3,6 +3,7 @@
 
 namespace Marrs\MarrsAdmin\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Config;
 use Marrs\MarrsAdmin\Http\Controllers\Controller;
 use Marrs\MarrsAdmin\Models\Admin;
 use Marrs\MarrsAdmin\Http\Requests\AdminRequest;
@@ -12,8 +13,10 @@ class AdminController extends Controller
 
     private $user;
 
-    public function __construct(Admin $user)
+    public function __construct($user)
     {
+        $model = Config::get('marrs-admin.models.admin');
+        $user = app($model);
         $this->user = $user;
     }
     /**
@@ -59,8 +62,9 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $user)
+    public function show($user)
     {
+        $user = $this->user->find($user);
         //
     }
 
@@ -70,8 +74,9 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $user)
+    public function edit($user)
     {
+        $user = $this->user->find($user);
         return view("marrs-admin::cruds.users.edit", ['user' => $user]);
     }
 
@@ -82,8 +87,9 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(AdminRequest $request, Admin $user)
+    public function update(AdminRequest $request, $user)
     {
+        $user = $this->user->find($user);
         $user->update($request->only('name', 'email'));
         if ($request->password != "") {
             $user->password = bcrypt($request->password);
@@ -99,8 +105,9 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $user)
+    public function destroy($user)
     {
+        $user = $this->user->find($user);
         $user->delete();
         return redirect()->route('admin.users.index');
     }
