@@ -90,7 +90,7 @@ class AdminController extends Controller
     public function update(AdminRequest $request, $user)
     {
         $user = $this->user->find($user);
-        $user->update($request->only('name', 'email'));
+        $user->update($request->except(['password']));
         if ($request->password != "") {
             $user->password = bcrypt($request->password);
             $user->save();
