@@ -13,7 +13,7 @@ class AdminController extends Controller
 
     private $user;
 
-    public function __construct($user)
+    public function __construct()
     {
         $model = Config::get('marrs-admin.models.admin');
         $user = app($model);
