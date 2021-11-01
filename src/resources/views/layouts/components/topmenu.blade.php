@@ -13,7 +13,7 @@
                 <span class="user-top-img">
                     <img alt="image" src="{{ Config::get('marrs-admin.logo') }}" class="rounded-circle mr-1">
                 </span>
-                <div class="d-sm-none d-lg-inline-block">Olá {{ auth('admin')->user()->name }}</div>
+                <div class="d-sm-none d-lg-inline-block">Olá {{ auth('admin')->user()->name ?? '' }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item has-icon text-danger" href="{{ route('admin.logout') }}">
