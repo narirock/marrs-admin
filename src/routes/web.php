@@ -22,3 +22,10 @@ Route::group(
         });
     }
 );
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/password', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@reset');
+    Route::post('password/email', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@sendpasswordemail');
+    Route::get('/password/resetform/{token}', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@resetform');
+    Route::post('/password/update', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@passwordupdate');
+});
