@@ -10,18 +10,9 @@ Ao instala-lo na aplicação ele provisiona:
 
 Instalação
 ---
-incluir no composer.json as sequintes informações
-```json
-require:{
-    "narirock/marrs-admin": "dev-dev"
-},
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/narirock/marrs-admin.git",
-        "no-api": true
-    }
-],
+```cmd
+
+composer require narirock/marrs-admin
 ```
 
 depois disso execute 
