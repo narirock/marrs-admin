@@ -15,12 +15,6 @@ Instalação
 composer require narirock/marrs-admin
 ```
 
-depois disso execute 
-
-```terminal
-composer install
-```
-
 no arquivo config/app.php inclua o service proovider
 
 ```php
