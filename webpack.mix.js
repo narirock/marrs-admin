@@ -4,7 +4,7 @@ mix.combine(
     [
         "node_modules/bootstrap/dist/css/bootstrap.min.css",
         "node_modules/@fortawesome/fontawesome-free/css/all.css",
-        "node_modules/jqvmap/dist/jqvmap.min.css",
+        //"node_modules/jqvmap/dist/jqvmap.min.css",
         "node_modules/summernote/dist/summernote-bs4.css",
         "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
         "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
@@ -45,7 +45,7 @@ mix.combine(
         "node_modules/tinymce/tinymce.min.js",
         "src/resources/assets/admin/js/start.js",
         "src/resources/assets/admin/js/stisla.js",
-        "node_modules/socket.io-client/dist/socket.io.min.js",
+        //"node_modules/socket.io-client/dist/socket.io.min.js",
         // "src/resources/assets/admin/js/notification.js",
         //"src/resources/assets/admin/js/uploadFiles.js",
         "src/resources/assets/admin/js/uploadImages.js",
