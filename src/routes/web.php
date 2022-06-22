@@ -9,9 +9,9 @@ Route::group(
         Route::get('login', 'Marrs\MarrsAdmin\Http\Controllers\Auth\AdminAuthController@loginForm')->name('admin.loginForm');
         Route::post('login', 'Marrs\MarrsAdmin\Http\Controllers\Auth\AdminAuthController@login')->name('admin.login');
         Route::get('/password', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@reset');
-    Route::post('password/email', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@sendpasswordemail');
-    Route::get('/password/resetform/{token}', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@resetform');
-    Route::post('/password/update', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@passwordupdate');
+        Route::post('password/email', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@sendpasswordemail');
+        Route::get('/password/resetform/{token}', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@resetform');
+        Route::post('/password/update', 'Marrs\MarrsAdmin\Http\Controllers\Auth\PasswordResetController@passwordupdate');
 
         Route::group(['middleware' => 'admin'], function () {
             Route::get('/', 'Marrs\MarrsAdmin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard');
@@ -22,8 +22,8 @@ Route::group(
             ], ['as' => 'admin']);
 
             Route::post('file/upload', 'Marrs\MarrsAdmin\Http\Controllers\Admin\FileUploadController@upload')->name('file.upload');
+            Route::post('image/upload', 'Marrs\MarrsAdmin\Http\Controllers\Admin\FileUploadController@imageUpload')->name('image.upload');
             Route::post('image/line/upload', 'Marrs\MarrsAdmin\Http\Controllers\Admin\FileUploadController@imageLineUpload')->name('image.line.upload');
         });
     }
 );
-
